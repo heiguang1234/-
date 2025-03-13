@@ -3,13 +3,16 @@ server:
 
 spring:
   application:
-    name:member-service-provider
+    name: member-service-provider
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://localhost:3306/e_commerce_center_db?useUnicode=true&characterEncoding=utf-8&useSSL=false
     driver-class-name: org.gjt.mm.mysql.Driver
     username: root
     password: root
+    druid:
+      validation-query: SELECT 1  # 添加验证查询
+      test-while-idle: true
 
 
 mybatis:

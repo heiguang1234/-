@@ -9,15 +9,14 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.hspedu.springcloud</groupId>
-    <artifactId>member-service-provider-10000</artifactId>
+    <artifactId>e-commerce-eureka-server-9001</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <!--引入相关的依赖-->
+
     <dependencies>
         <!--引入sleuth + zipkin 依赖 老师说明 1. 使用的是版本仲裁 2.starter-zipkin包含了sleuth  -->
         <!-- <dependency> -->
@@ -25,10 +24,15 @@
         <!--     <artifactId>spring-cloud-starter-zipkin</artifactId> -->
         <!-- </dependency> -->
         <!-- &lt;!&ndash;引入eureka-client 场景启动器starter: 使用版本仲裁&ndash;&gt; -->
-        <!-- <dependency> -->
-        <!--     <groupId>org.springframework.cloud</groupId> -->
-        <!--     <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId> -->
-        <!-- </dependency> -->
+        <dependency>
+            <groupId>com.hspedu.springcloud</groupId>
+            <artifactId>e_commerce_center-common-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
 
         <!--引入web-starter 老师说明我们使用版本仲裁(从父项目继承了版本)
         -->
@@ -45,36 +49,12 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!--引入mybatis-starter 整合到springboot-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-
-        <!--引入druid-starter-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <!--这里需要我们指定版本, 因为父项目没有-->
-            <version>1.1.17</version>
-        </dependency>
-
-        <!--引入mysql依赖,使用版本仲裁-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <!--spring-boot-start-jdbc引入-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
 
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <!--引入test-starter-->
@@ -92,5 +72,4 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
 </project>

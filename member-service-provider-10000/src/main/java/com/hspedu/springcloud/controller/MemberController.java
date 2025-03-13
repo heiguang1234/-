@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Author:Black Sunshine
@@ -22,7 +23,9 @@ public class MemberController {
     private MemberService memberService;
 
     @PostMapping(value = "/member/save")
-    public Result save(Member member) {
+    public Result save(Member member, HttpServletRequest request) {
+        System.out.println("Received request from: " + request.getRemoteAddr());
+        System.out.println("Request body: " + member);
         int result = memberService.save(member);
         log.info("reset= " + result);
         if (result > 0) { // 成功

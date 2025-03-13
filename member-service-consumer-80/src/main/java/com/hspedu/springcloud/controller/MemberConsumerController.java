@@ -76,6 +76,7 @@ public class MemberConsumerController {
                 + "/member/save", member, Result.class);
     }
 
+
     //方法/接口 , 根据id 调用服务接口,返回member对象信息
     @GetMapping("/member/consumer/get/{id}")
     public Result<Member> getMemberById(@PathVariable("id") Long id) {

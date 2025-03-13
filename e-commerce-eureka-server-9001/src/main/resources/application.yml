@@ -1,0 +1,15 @@
+server:
+  port: 9001
+
+# 配置eureka-server
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # 配置不想注册中心注册自己
+    register-with-eureka: false
+    # 表示自己就是注册中心
+    fetch-registry: false
+    service-url:
+      # 设置eureka交互模块 查询服务和注册服务都需要依赖这个地址
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
