@@ -16,6 +16,7 @@
         <module>member-service-consumer-80</module>
         <module>e_commerce_center-common-api</module>
         <module>e-commerce-eureka-server-9001</module>
+        <module>exercise</module>
     </modules>
 
     <distributionManagement>
